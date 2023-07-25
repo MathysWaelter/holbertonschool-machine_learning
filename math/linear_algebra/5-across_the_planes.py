@@ -19,7 +19,7 @@ def add_matrices2D(mat1, mat2):
         return None
 
     # Returns None if the shape of the two matrices are different.
-    if matrix_shape(mat1) != matrix_shape(mat2):
+    if len(mat1) != len(mat2):
         return None
 
     # Add all elements of the matrix to result.
