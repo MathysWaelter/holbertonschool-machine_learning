@@ -12,7 +12,7 @@ def add_matrices2D(mat1, mat2):
     @return The result of the addition or None if there is a problem.
     """
     result = [[0, 0, 0, 0], [0, 0, 0, 0]]
-    
+
     if mat1 is None:
         return None
     if mat2 is None:
