@@ -13,9 +13,7 @@ def add_matrices2D(mat1, mat2):
     """
     result = [[0, 0], [0, 0]]
 
-    if mat1 is None:
-        return None
-    if mat2 is None:
+    if mat1 is None or mat2 is None:
         return None
 
     # Returns None if the shape of the two matrices are different.
