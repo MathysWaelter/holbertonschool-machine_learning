@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 """adds two 2D matrices."""
 
 matrix_shape = __import__('2-size_me_please').matrix_shape
@@ -12,7 +11,12 @@ def add_matrices2D(mat1, mat2):
 
     @return The result of the addition or None if there is a problem.
     """
-    result = [[0, 0], [0, 0]]
+    result = [[0, 0, 0, 0], [0, 0, 0, 0]]
+    
+    if mat1 is None:
+        return None
+    if mat2 is None:
+        return None
 
     # Returns None if the shape of the two matrices are different.
     if matrix_shape(mat1) != matrix_shape(mat2):
