@@ -11,7 +11,7 @@ def add_matrices2D(mat1, mat2):
 
     @return The result of the addition or None if there is a problem.
     """
-    result = [[0, 0, 0, 0], [0, 0, 0, 0]]
+    result = [[0, 0], [0, 0]]
 
     if mat1 is None:
         return None
@@ -19,7 +19,7 @@ def add_matrices2D(mat1, mat2):
         return None
 
     # Returns None if the shape of the two matrices are different.
-    if len(mat1) != len(mat2):
+    if matrix_shape(mat1) != matrix_shape(mat2):
         return None
 
     # Add all elements of the matrix to result.
