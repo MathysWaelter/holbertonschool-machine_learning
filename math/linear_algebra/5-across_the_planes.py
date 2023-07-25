@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# adds two 2D matrices.
+
+"""adds two 2D matrices."""
 
 matrix_shape = __import__('2-size_me_please').matrix_shape
 
