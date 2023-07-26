@@ -2,7 +2,6 @@
 
 
 """Return the shape of a NumPy matrix."""
-import numpy as np
 
 
 def np_shape(matrix):
@@ -11,4 +10,4 @@ def np_shape(matrix):
 
     @return The shape of the matrix as a tuple of integers.
     """
-    return np.shape(matrix)
+    return (len(matrix),)
