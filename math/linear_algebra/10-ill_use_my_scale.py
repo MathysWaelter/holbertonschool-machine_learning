@@ -10,4 +10,5 @@ def np_shape(matrix):
 
     @return The shape of the matrix as a tuple of integers.
     """
-    return (len(matrix),)
+
+    return matrix.shape
