@@ -3,8 +3,6 @@
 
 """Concatenate two 2D matrices along a given axis."""
 
-matrix_shape = __import__('2-size_me_please').matrix_shape
-
 
 def cat_matrices2D(mat1, mat2, axis=0):
     """
@@ -19,7 +17,7 @@ def cat_matrices2D(mat1, mat2, axis=0):
     # Returns a new matrix with the same shape as the two matrices.
     if axis == 0:
         # Returns the shape of the first matrix
-        if matrix_shape(mat1[0]) != matrix_shape(mat2[0]):
+        if len(mat1[0]) != len(mat2[0]):
             return None
 
         new_matrix = mat1 + mat2
