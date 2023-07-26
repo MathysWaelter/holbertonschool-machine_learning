@@ -2,8 +2,6 @@
 
 """Transpose a NumPy matrix."""
 
-import numpy as np
-
 
 def np_transpose(matrix):
     """
@@ -12,5 +10,4 @@ def np_transpose(matrix):
     @return The transposed matrix.
     """
 
-    trans = np.transpose(matrix)
-    return trans
+    return matrix.transpose()
