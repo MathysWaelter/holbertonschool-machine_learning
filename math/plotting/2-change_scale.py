@@ -12,7 +12,7 @@ plt.xlabel("Time (years)")
 plt.ylabel("Fraction Remaining")
 plt.yscale("log")
 plt.plot(x, y)
-plt.xlim(x[0], x[-1])
+plt.xlim(0, 28650)
 
 # displaying the title
 plt.title("Exponential Decay of C-14")
