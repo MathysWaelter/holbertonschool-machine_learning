@@ -14,11 +14,11 @@ def poly_derivative(poly):
 
     coeff = []
 
-    # Add derivative to coeff array
+    # Add derivative to derivative array
     for i, x in enumerate(poly[1:], start=1):
         coeff.append(x * i)
 
-    if all(coeff):
+    if all(y == 0 for y in coeff):
         return [0]
 
     return coeff
