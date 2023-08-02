@@ -2,7 +2,6 @@
 
 
 """Summation of i squared."""
-import numpy as np
 
 
 def summation_i_squared(n):
@@ -10,6 +9,6 @@ def summation_i_squared(n):
     @param n - number of integers to calculate
     @return sum of squares of
     """
-    array = np.arange(1, n + 1)
-    result = np.sum(array ** 2)
-    return result
+    if n < 0 or not isinstance(n, int):
+        return 0
+    return int(n * (n + 1)*(2 * n + 1) / 6)
