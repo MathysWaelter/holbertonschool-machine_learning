@@ -10,5 +10,5 @@ def summation_i_squared(n):
     @return sum of squares of
     """
     if n < 0 or not isinstance(n, int):
-        return 0
+        return None
     return int(n * (n + 1)*(2 * n + 1) / 6)
