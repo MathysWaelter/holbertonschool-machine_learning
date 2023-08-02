@@ -9,7 +9,7 @@ def poly_derivative(poly):
     @return The derivatives of the polynomial
     """
     # Return None if poly is a list or len poly.
-    if not isinstance(poly, list) or len(poly) is None:
+    if not isinstance(poly, list) or len(poly) < 0:
         return None
 
     coeff = []
