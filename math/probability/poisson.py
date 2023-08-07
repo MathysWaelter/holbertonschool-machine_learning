@@ -5,6 +5,9 @@
 
 
 class Poisson:
+    """
+    class for poisson probality
+    """
     def __init__(self, data=None, lambtha=1.):
         """
         Initialize the Lamtha estimator.
