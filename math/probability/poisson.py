@@ -32,6 +32,7 @@ class Poisson:
             self.lambtha = float(sum(data) / len(data))
 
     def facto(self, n):
+        """calcul factorial"""
         if n == 0 or n == 1:
             return 1
         result = 1
