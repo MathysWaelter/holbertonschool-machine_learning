@@ -60,9 +60,12 @@ class Exponential:
         @return probability mass function at
         """
         self.e = e
+        cdf = 0.0
 
         # Return k if k 0.
-        if x < 0:
-            return 0
+        if x <= 0:
+            return cdf
 
-        return (1 - (e ** (- self.lambtha ** x)))
+        cdf += 1 - (e ** (- self.lambtha * x))
+
+        return float(cdf)
