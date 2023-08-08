@@ -46,14 +46,10 @@ class Exponential:
         @param k - number of trials to evaluate
         @return probability mass function at
         """
-        self.x = float(x)
         self.e = e
 
-        # Convert k to an integer.
-        if not isinstance(x, float):
-            x = float(x)
         # Return k if k 0.
         if x < 0:
             return 0
 
-        return self.lambtha * (e ** - self.lambtha * x)
+        return self.lambtha * (e ** - (self.lambtha * x))
