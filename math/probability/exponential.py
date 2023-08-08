@@ -30,3 +30,30 @@ class Exponential:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.lambtha = float(1.0 / (sum(data) / len(data)))
+
+    def facto(self, n):
+        """calcul factorial"""
+        if n == 0 or n == 1:
+            return 1
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result
+
+    def pdf(self, x):
+        """
+        Returns the probability mass function at k.
+        @param k - number of trials to evaluate
+        @return probability mass function at
+        """
+        self.x = float(x)
+        self.e = e
+
+        # Convert k to an integer.
+        if not isinstance(x, float):
+            x = float(x)
+        # Return k if k 0.
+        if x < 0:
+            return 0
+
+        return self.lambtha * (e ** - self.lambtha * x)
