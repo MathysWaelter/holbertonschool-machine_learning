@@ -63,7 +63,7 @@ class Exponential:
         cdf = 0
 
         # Return k if k 0.
-        if x <= 0:
+        if x < 0:
             return 0
 
         cdf += 1 - (e ** (- self.lambtha * x))
