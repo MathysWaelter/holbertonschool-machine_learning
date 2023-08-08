@@ -4,6 +4,7 @@
 """exponential probability calcul"""
 
 e = 2.7182818285
+pi = 3.1415926536
 
 
 class Normal:
@@ -43,3 +44,14 @@ class Normal:
     def x_value(self, z):
         """calcul x value with z value"""
         return self.mean + (z * self.stddev)
+
+    def pdf(self, x):
+        """
+        Returns the probability density function at x.
+        @param x
+        """
+        self.e = e
+        self.pi = pi
+        sqr = 2 * pi * self.stddev ** 2
+        exp = - ((x - self.mean) ** 2) / (2 * self.stddev ** 2)
+        return (1 / (sqr ** 0.5)) * (e ** exp)
