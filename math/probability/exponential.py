@@ -53,3 +53,16 @@ class Exponential:
             return 0
 
         return self.lambtha * (e ** - (self.lambtha * x))
+
+    def cdf(self, x):
+        """Returns the probability density function at k.
+        @param k - number of trials to evaluate
+        @return probability mass function at
+        """
+        self.e = e
+
+        # Return k if k 0.
+        if x < 0:
+            return 0
+
+        return (1 - (e ** (- self.lambtha ** x)))
