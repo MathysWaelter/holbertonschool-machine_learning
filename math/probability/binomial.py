@@ -30,11 +30,11 @@ class Binomial:
         if data is None:
             # Raised if p is negative.
             if n <= 0:
-                raise ValueError("p must be a positive value")
-            if (p < 0) or (p > 1):
+                raise ValueError("n must be a positive value")
+            if p <= 0 or p >= 1:
                 raise ValueError("p must be greater than 0 and less than 1")
             self.p = float(p)
-            self.n = int(n)
+            self.n = int(round(n))
         else:
             # TypeError if data is not a list
             if not isinstance(data, list):
