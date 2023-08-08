@@ -3,6 +3,8 @@
 
 """initialize poisson class"""
 
+e = 2.7182818285
+
 
 class Poisson:
     """
@@ -28,3 +30,26 @@ class Poisson:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.lambtha = float(sum(data) / len(data))
+
+    def pmf(self, k):
+        """
+        Returns the probability mass function at k.
+        @param k - number of trials to evaluate
+        @return probability mass function at
+        """
+        self.k = float(k)
+        self.e = e
+        fact = 1
+
+        # Convert k to an integer.
+        if not isinstance(k, int):
+            k = int(k)
+        # Return k if k 0.
+        if k < 0:
+            return 0
+
+        # Compute the fact of the first two k 1.
+        for i in range(2, k+1):
+            fact = fact * i
+
+        return (e ** (- self.lambtha)) * (self.lambtha ** k) / fact
