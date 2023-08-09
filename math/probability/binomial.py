@@ -42,6 +42,8 @@ class Binomial:
             # Raise ValueError if len data 2
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
-            self.p = sum(data) / (len(data) * n)
-            self.n = int(round(sum(data) / self.p) * 0.5)
-            self.p = sum(data) / (len(data) * self.n)
+            mean = sum(data) / len(data)
+            variance = sum((x - mean) ** 2 for x in data) / len(data)
+            self.p = 1 - (variance / mean)
+            self.n = int(round(mean / self.p))
+            self.p = mean / self.n
