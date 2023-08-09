@@ -75,3 +75,24 @@ class Binomial:
         coeff = facto(self.n) / (facto(k) * facto(self.n - k))
 
         return coeff * self.p ** k * (1 - self.p) ** (self.n - k)
+
+    def cdf(self, k):
+        """Returns the probability density function at k.
+        @param k - given number of “successes”
+        @return probability mass function at
+        """
+
+        # Convert k to an integer.
+        if not isinstance(k, int):
+            k = int(k)
+
+        # Return k if k 0.
+        if k < 0:
+            return 0
+
+        total_sum = 0  # Initialize at 0
+
+        for i in range(k+1):
+            total_sum += self.pmf(i)
+
+        return total_sum
