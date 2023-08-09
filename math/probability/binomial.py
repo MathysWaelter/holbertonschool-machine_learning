@@ -47,3 +47,31 @@ class Binomial:
             self.p = 1 - (variance / mean)
             self.n = int(round(mean / self.p))
             self.p = mean / self.n
+
+    def facto(self, x):
+        """calcul factorial"""
+        if x == 0 or x == 1:
+            return 1
+        result = 1
+        for i in range(2, x + 1):
+            result *= i
+        return result
+
+    def pmf(self, k):
+        """
+        Returns the probability mass function at k.
+        @param k -  given number of “successes”
+        @return probability mass function at
+        """
+        self.e = e
+
+        # Convert k to an integer.
+        if not isinstance(k, int):
+            k = int(k)
+        # Return k if k 0.
+        if k < 0:
+            return 0
+
+        coeff = facto(self.n) / (facto(k) * facto(self.n - k))
+
+        return coeff * self.p ** k * (1 - self.p) ** (self.n - k)
