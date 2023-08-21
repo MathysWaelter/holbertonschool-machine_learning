@@ -94,13 +94,15 @@ class Neuron:
         return dW, db
 
     def update(dW, db, W, b, alpha):
+        """update"""
         W = W - alpha * dW
         b = b - alpha * db
         return (W, b)
 
-    def train(self, X, Y, iterations=5000, alpha=0.05, verbose=True, graph=True, step=100):
-        
-        
+    def train(self, X, Y, iterations=5000, alpha=0.05,
+              verbose=True, graph=True, step=100):
+        """update neuron"""
+
         if not isinstance(iterations, int):
             raise TypeError("iterations must be an integer")
         if iterations < 0:
@@ -113,29 +115,24 @@ class Neuron:
             raise TypeError("step must be an integer")
         if step < 0 or step > iterations:
             raise ValueError("step must be positive and <= iterations")
-        
+
         rcost = []
-        
+
         for i in range(iterations + 1):
             self.__A = self.forward_prop(X)
-            rcost.append(self.cost(Y, self.__A))
-            
-            
-            if verbose and i % step == 0:
-                print("Cost after {} iterations: {}".format(i, self.cost(Y, self.__A)))
-            if i != iterations:
-                self.gradient_descent(X, Y, self.__A, alpha)
-            
-        
-        
-        if graph or verbose is True:
-            plt.xlabel("iteration", fontsize="x-small")
-            plt.ylabel("cost", fontsize="x-small")
-            plt.xlim(0, 3000)
-            plt.yticks(np.arange(0, 3001, 500))
-            plt.ylim(0, 4)
-            plt.plot(np.arange(0, iterations + 1, step), color="blue")
-            plt.title("Training Cost",  fontsize="x-small")
+            self.gradient_descent(X, Y, self.__A, alpha)
+
+            if verbose and (i % step == 0 or i == 0 or i == iterations):
+                cost = self.cost(Y, self.__A)
+                print(f"Cost after {i} iterations: {cost}")
+                rcost.append((i, cost))
+
+        if graph:
+            iterations_to_plot, costs_to_plot = zip(*rcost)
+            plt.plot(iterations_to_plot, costs_to_plot, color='blue')
+            plt.xlabel('Iteration')
+            plt.ylabel('Cost')
+            plt.title('Training Cost')
             plt.show()
 
         return self.evaluate(X, Y)

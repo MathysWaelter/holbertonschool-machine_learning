@@ -93,6 +93,7 @@ class Neuron:
         return dW, db
 
     def update(dW, db, W, b, alpha):
+        """update"""
         W = W - alpha * dW
         b = b - alpha * db
         return (W, b)
