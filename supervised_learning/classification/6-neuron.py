@@ -110,7 +110,7 @@ class Neuron:
 
         # Evaluate the gradient descent for X and Y. This is a recursive method
         for _ in range(iterations):
-            self.__A = self.forward_prop(X)
-            self.gradient_descent(X, Y, self.__A, alpha)
+            A = self.forward_prop(X)
+            self.gradient_descent(X, Y, A, alpha)
 
         return self.evaluate(X, Y)
