@@ -98,17 +98,18 @@ class Neuron:
         return (W, b)
 
     def train(self, X, Y, iterations=5000, alpha=0.05):
+        """
+        Function to train the model
+        """
 
         if not isinstance(iterations, int):
             raise TypeError("iterations must be an integer")
-        if iterations < 0:
+        if iterations <= 0:
             raise ValueError("iterations must be a positive integer")
         if not isinstance(alpha, float):
             raise TypeError("alpha must be a float")
-        if alpha < 0:
+        if alpha <= 0:
             raise ValueError("alpha must be positive")
-
-        # Evaluate the gradient descent for X and Y. This is a recursive method
         for _ in range(iterations):
             A = self.forward_prop(X)
             self.gradient_descent(X, Y, A, alpha)
