@@ -5,7 +5,7 @@ layer performing binary classification"""
 import numpy as np
 
 
-class Neuron:
+class NeuralNetwork:
     """ Initialize the parameters of the random walk."""
     def __init__(self, nx, nodes):
         """
