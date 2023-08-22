@@ -12,7 +12,7 @@ class DeepNeuralNetwork:
             raise TypeError("nx must be an integer")
         if nx < 1:
             raise ValueError("nx must be a positive integer")
-        if not layers:
+        if not layers or not isinstance(layers, list):
             raise TypeError("layers must be a list of positive integers")
 
         self.L = len(layers)
