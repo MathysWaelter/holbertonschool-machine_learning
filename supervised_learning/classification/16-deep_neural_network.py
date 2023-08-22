@@ -20,11 +20,11 @@ class DeepNeuralNetwork:
         self.weights = {}
 
         for i in range(1, self.L + 1):
-            if i <= 0:
-                raise ValueError("layers must be a list of positive integers")
-            
-            He = np.random.randn(layers[i - 1], nx) * np.sqrt(2 / layers[i - 2])
+            current = layers[i - 1]
+            He = np.random.randn(current, nx) * np.sqrt(2 / layers[i - 2])
+            if not isinstance(current, int) or current <= 0:
+                raise TypeError("layers must be a list of positive integers")
 
             self.weights['W' + str(i)] = He
-            self.weights['b' + str(i)] = np.zeros((layers[i - 1], 1))
-            nx = layers[i - 1]
+            self.weights['b' + str(i)] = np.zeros((current, 1))
+            nx = current
