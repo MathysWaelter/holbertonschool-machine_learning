@@ -11,12 +11,15 @@ def one_hot_encode(Y, classes):
      @param classes - number of classes in the training set
      @return - array of one hot
     """
-    m = Y.shape[0]
-    encoded_labels = np.zeros((classes, m))
+    try:
+        m = Y.shape[0]
+        encoded_labels = np.zeros((classes, m))
 
-    # Set the encoded labels for each class label.
-    for i in range(m):
-        class_label = Y[i]
-        encoded_labels[class_label, i] = 1
+        # Set the encoded labels for each class label.
+        for i in range(m):
+            class_label = Y[i]
+            encoded_labels[class_label, i] = 1
 
-    return encoded_labels
+        return encoded_labels
+    except:
+        return None
