@@ -3,9 +3,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from pickle import dump, load
-from os.path import isfile
-from math import exp
+import pickle
 
 
 class DeepNeuralNetwork:
@@ -159,41 +157,24 @@ class DeepNeuralNetwork:
 
     def save(self, filename):
         """
-        Save the data to a file. This is a convenience method for ` dump `
-        @param filename - Name of the file to save to
-        @return None if filename is empty or
+         Save the object to a file.
+         @param filename - name of the file to
         """
-        # Returns the filename or None if filename is empty.
-        if filename == '' or not filename:
-            return None
         # Add. pkl extension to filename if it s not already a. pkl file
         if not filename.endswith('.pkl'):
             filename += '.pkl'
-
-        with open(filename, 'wb') as f:
-            dump(self, f, protocol=3)
+        with open(filename, 'wb') as file:
+            pickle.dump(self, file)
 
     @staticmethod
     def load(filename):
         """
-        Load a Pkl file. This is a wrapper around load ( filename'rb')
-        @param filename - Name of the file to load
-        @return None if the file doesn't exist or is
+         Load a pickled object from a file.
+         @param filename - Name of the file to load
+         @return The object or None if the file doesn't
         """
-        # Returns the filename or None if filename is empty.
-        if filename == '' or not filename:
-            return None
-        # Return None if filename ends with. pkl.
-        if not filename.endswith('.pkl'):
-            return None
-        # Return None if filename is not a file.
-        if not isfile(filename):
-            return None
-
         try:
-            f = open(filename, 'rb')
-        except IOError:
+            with open(filename, 'rb') as file:
+                return pickle.load(file)
+        except FileNotFoundError:
             return None
-        else:
-            with f:
-                return load(f)
