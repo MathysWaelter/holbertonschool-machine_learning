@@ -104,7 +104,7 @@ class DeepNeuralNetwork:
 
         dZ = cache['A' + str(L)] - Y
         for i in range(L, 0, -1):
-            last = cache['A' + str(L)]
+            last = cache['A' + str(i - 1)]
             dW = np.dot(dZ,  last.T) / m
             db = np.sum(dZ, axis=1, keepdims=True) / m
             dZ = np.dot(self.__weights['W' + str(i)].T,
