@@ -4,6 +4,7 @@
 
 import tensorflow.compat.v1 as tf
 
+
 def evaluate(X, Y, save_path):
     """
     Evaluate a saved model
