@@ -2,7 +2,6 @@
 """forward_prop"""
 
 
-import numpy as np
 import tensorflow.compat.v1 as tf
 
 calculate_accuracy = __import__('3-calculate_accuracy').calculate_accuracy
